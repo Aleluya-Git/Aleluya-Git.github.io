@@ -1,0 +1,4 @@
+Coloca aqui el archivo de la fuente BN Machine con uno de estos nombres:
+  BNMachine.woff2   (recomendado)
+  BNMachine.ttf
+La web la usa para todos los titulos. Si falta, se usa Bricolage Grotesque.

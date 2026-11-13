@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aleluya-Git · Software libre para quien construye electrónica</title>
+<meta name="description" content="OpenLaser Studio, OpenRouteAI, Electronic Front Panel Designer y Open LVGL Studio: aplicaciones de escritorio libres para grabado láser, ruteado de PCB, paneles frontales e interfaces LVGL.">
+<meta name="theme-color" content="#0C0E11">
+<meta property="og:title" content="Aleluya-Git · Software libre para quien construye electrónica">
+<meta property="og:description" content="Cuatro aplicaciones de escritorio para makers: láser, PCB, paneles frontales y pantallas LVGL.">
+<meta property="og:image" content="assets/img/screens/ol-principal.webp">
+<link rel="icon" href="assets/img/openlaser-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<script>
+/* idioma antes de pintar: ?lang=en, preferencia guardada o idioma del navegador */
+(function(){var l;try{l=new URLSearchParams(location.search).get("lang")||localStorage.getItem("lang")}catch(e){}
+if(l!=="es"&&l!=="en")l=(navigator.language||"es").toLowerCase().indexOf("es")===0?"es":"en";
+document.documentElement.lang=l;})();
+</script>
+</head>
+<body>
+<a class="skip" href="#proyectos"><span class="es">Saltar al contenido</span><span class="en">Skip to content</span></a>
+
+<header class="nav" id="top">
+  <a class="brand" href="#top" data-aria-es="Inicio" data-aria-en="Home">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 26h8l4-8h12" /><circle cx="4" cy="26" r="3"/><circle cx="28" cy="18" r="3"/><path d="M16 18 20 6h8"/><circle cx="28" cy="6" r="3"/></svg>
+    <span>Aleluya-Git</span>
+  </a>
+  <div class="nav-right">
+    <nav id="menu" data-aria-es="Principal" data-aria-en="Main">
+      <a href="#openlaser" style="--c:var(--laser)">OpenLaser</a>
+      <a href="#openroute" style="--c:var(--route)">OpenRouteAI</a>
+      <a href="#efpd" style="--c:var(--panel)">Front Panel</a>
+      <a href="#lvgl" style="--c:var(--lvgl)">LVGL Studio</a>
+      <a class="nav-gh" href="https://github.com/Aleluya-Git" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+    <div class="site-lang" role="group" data-aria-es="Idioma de la web" data-aria-en="Site language">
+      <button data-setlang="es" lang="es">ES</button>
+      <button data-setlang="en" lang="en">EN</button>
+    </div>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="menu"><span class="es">Menú</span><span class="en">Menu</span></button>
+  </div>
+</header>
+
+<main>
+<!-- ============ HERO ============ -->
+<section class="hero" data-aria-es="Presentación" data-aria-en="Introduction">
+  <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="hero-inner">
+    <h1>
+      <span class="es">Herramientas libres<br>para quien construye<br>electrónica</span>
+      <span class="en">Open tools<br>for people who<br>build electronics</span>
+    </h1>
+    <p class="lede es">Cuatro aplicaciones de escritorio para grabar y cortar con láser, rutear placas de KiCad, diseñar paneles frontales y crear pantallas LVGL para ESPHome. Hechas en Python + Qt, para Windows, macOS y Linux.</p>
+    <p class="lede en">Four desktop applications to engrave and cut with a laser, route KiCad boards, design front panels and build LVGL screens for ESPHome. Made with Python + Qt for Windows, macOS and Linux.</p>
+    <div class="hero-cta">
+      <a class="btn btn-solid" href="#proyectos"><span class="es">Ver los proyectos</span><span class="en">See the projects</span></a>
+      <a class="btn btn-ghost" href="https://github.com/Aleluya-Git" target="_blank" rel="noopener">
+        <svg class="gh" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38v-1.33c-2.23.48-2.7-1.07-2.7-1.07-.36-.92-.89-1.17-.89-1.17-.73-.5.06-.49.06-.49.8.06 1.23.83 1.23.83.72 1.22 1.88.87 2.34.66.07-.52.28-.87.5-1.07-1.78-.2-3.65-.89-3.65-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8 8 0 0 0 8 0Z"/></svg>
+        <span class="es">Perfil en GitHub</span><span class="en">GitHub profile</span></a>
+    </div>
+    <p class="hero-hint"><span class="es">Mueve el ratón: las pistas se rutean solas hacia el cursor.</span><span class="en">Move the mouse: the traces route themselves towards the cursor.</span></p>
+  </div>
+</section>
+
+<!-- ============ PROYECTOS (carrusel) ============ -->
+<section class="projects" id="proyectos" aria-labelledby="proj-title">
+  <div class="section-head">
+    <h2 id="proj-title"><span class="es">Proyectos</span><span class="en">Projects</span></h2>
+    <div class="arrows">
+      <button class="arrow" data-dir="-1" data-aria-es="Anterior" data-aria-en="Previous">&#8592;</button>
+      <button class="arrow" data-dir="1" data-aria-es="Siguiente" data-aria-en="Next">&#8594;</button>
+    </div>
+  </div>
+  <div class="rail" id="rail" tabindex="0" data-aria-es="Carrusel de proyectos" data-aria-en="Project carousel">
+    <a class="card" href="#openlaser" style="--c:var(--laser)">
+      <div class="card-img"><img loading="lazy" src="assets/img/screens/ol-principal.webp" data-alt-es="Pantalla principal de OpenLaser Studio" data-alt-en="OpenLaser Studio main window" alt=""></div>
+      <div class="card-body">
+        <h3>OpenLaser Studio</h3>
+        <p class="es">Diseña, simula y envía trabajos de grabado y corte a máquinas GRBL, grblHAL y FluidNC.</p>
+        <p class="en">Design, simulate and send engraving and cutting jobs to GRBL, grblHAL and FluidNC machines.</p>
+        <ul class="tags"><li><span class="es">Láser</span><span class="en">Laser</span></li><li>G-code</li><li>MIT</li></ul>
+        <span class="status ok"><span class="es">v0.6.1 publicada</span><span class="en">v0.6.1 released</span></span>
+      </div>
+    </a>
+    <a class="card" href="#openroute" style="--c:var(--route)">
+      <div class="card-img"><img loading="lazy" src="assets/img/screens/or-placa.webp" data-alt-es="Placa ruteada por OpenRouteAI con sus huellas y referencias" data-alt-en="Board routed by OpenRouteAI with its footprints and references" alt=""></div>
+      <div class="card-body">
+        <h3>OpenRouteAI</h3>
+        <p class="es">Autorouter libre para KiCad: lee el proyecto, rutea todas las pistas respetando las reglas y escribe un .kicad_pcb válido.</p>
+        <p class="en">Open autorouter for KiCad: reads the project, routes every track within the design rules and writes a valid .kicad_pcb.</p>
+        <ul class="tags"><li>PCB</li><li>KiCad 6–10</li><li>GPL-3.0</li></ul>
+        <span class="status dev"><span class="es">v0.5.0 · en desarrollo</span><span class="en">v0.5.0 · in development</span></span>
+      </div>
+    </a>
+    <a class="card" href="#efpd" style="--c:var(--panel)">
+      <div class="card-img"><img loading="lazy" src="assets/img/screens/efpd-principal-es.webp" data-alt-es="Pantalla principal de Electronic Front Panel Designer" data-alt-en="Electronic Front Panel Designer main window" alt=""></div>
+      <div class="card-body">
+        <h3>Electronic Front Panel Designer</h3>
+        <p class="es">CAD 2D para paneles frontales y traseros: racks 19", Eurorack, cajas Hammond. Exporta a DXF, STL y G-code.</p>
+        <p class="en">2D CAD for front and rear panels: 19" racks, Eurorack, Hammond boxes. Exports DXF, STL and G-code.</p>
+        <ul class="tags"><li>CAD</li><li><span class="es">Mecanizado</span><span class="en">Machining</span></li><li>GPL-3.0</li></ul>
+        <span class="status ok"><span class="es">Instaladores Windows y macOS</span><span class="en">Windows and macOS installers</span></span>
+      </div>
+    </a>
+    <a class="card" href="#lvgl" style="--c:var(--lvgl)">
+      <div class="card-img"><img loading="lazy" src="assets/img/screens/lvgl-principal-es.webp" data-alt-es="Open LVGL Studio editando un panel domótico" data-alt-en="Open LVGL Studio editing a home automation panel" alt=""></div>
+      <div class="card-body">
+        <h3>Open LVGL Studio</h3>
+        <p class="es">Editor visual de pantallas LVGL para ESPHome, con el YAML sincronizado en ambos sentidos.</p>
+        <p class="en">Visual LVGL screen editor for ESPHome, with the YAML kept in sync both ways.</p>
+        <ul class="tags"><li>LVGL</li><li>ESPHome</li><li>WYSIWYG</li></ul>
+        <span class="status dev"><span class="es">v0.10 · beta pública</span><span class="en">v0.10 · public beta</span></span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ============ OPENLASER ============ -->
+<section class="chapter" id="openlaser" style="--c:var(--laser)" aria-labelledby="ol-title">
+  <div class="chapter-head">
+    <img class="chapter-icon" src="assets/img/openlaser-icon.png" alt="" width="72" height="72">
+    <div>
+      <h2 id="ol-title">OpenLaser Studio</h2>
+      <p class="chapter-lede es">Del dibujo al quemado en una sola aplicación. Diseña, prepara, simula y ejecuta trabajos de grabado y corte con controladores GRBL 1.1+, grblHAL y FluidNC, y de forma experimental Marlin y Smoothieware.</p>
+      <p class="chapter-lede en">From drawing to burn in a single application. Design, prepare, simulate and run engraving and cutting jobs on GRBL 1.1+, grblHAL and FluidNC controllers, with experimental Marlin and Smoothieware support.</p>
+    </div>
+    <div class="chapter-links">
+      <a class="btn btn-solid" href="https://github.com/Aleluya-Git/Openlaser" target="_blank" rel="noopener"><span class="es">Ver en GitHub</span><span class="en">View on GitHub</span></a>
+      <a class="btn btn-ghost" href="https://github.com/Aleluya-Git/Openlaser/releases/latest" target="_blank" rel="noopener"><span class="es">Descargar para Windows</span><span class="en">Download for Windows</span></a>
+    </div>
+  </div>
+
+  <figure class="window viewer" data-project="openlaser" data-name="OpenLaser Studio"></figure>
+
+  <div class="demo">
+    <div class="demo-text">
+      <h3><span class="es">Pruébalo: simulación de grabado</span><span class="en">Try it: engraving simulation</span></h3>
+      <p class="es">Así se ve la simulación paso a paso de OpenLaser: el cabezal recorre el G-code generado y deja la marca del quemado. Elige una figura, ajusta potencia y velocidad y pulsa Iniciar.</p>
+      <p class="en">This is how OpenLaser's step-by-step simulation looks: the head follows the generated G-code and leaves the burn mark behind. Pick a shape, set power and speed and press Start.</p>
+      <div class="controls">
+        <div class="seg" role="radiogroup" data-aria-es="Figura" data-aria-en="Shape">
+          <button class="on" data-shape="star" role="radio" aria-checked="true"><span class="es">Estrella</span><span class="en">Star</span></button>
+          <button data-shape="gear" role="radio" aria-checked="false"><span class="es">Engranaje</span><span class="en">Gear</span></button>
+          <button data-shape="wave" role="radio" aria-checked="false"><span class="es">Relleno</span><span class="en">Fill</span></button>
+        </div>
+        <label><span><span class="es">Potencia</span><span class="en">Power</span></span> <output id="pwrOut">70 %</output><input type="range" id="pwr" min="10" max="100" value="70"></label>
+        <label><span><span class="es">Velocidad</span><span class="en">Speed</span></span> <output id="spdOut">1500 mm/min</output><input type="range" id="spd" min="300" max="6000" step="100" value="1500"></label>
+        <div class="row">
+          <button class="btn btn-solid" id="laserGo"></button>
+          <button class="btn btn-ghost" id="laserFrame"><span class="es">Marco</span><span class="en">Frame</span></button>
+          <button class="btn btn-ghost" id="laserClear"><span class="es">Limpiar</span><span class="en">Clear</span></button>
+        </div>
+        <p class="safety es">El láser siempre va apagado en desplazamientos y en el marco, igual que en la aplicación.</p>
+        <p class="safety en">The laser is always off during travel moves and framing, just like in the application.</p>
+      </div>
+    </div>
+    <div class="demo-stage laser-stage">
+      <canvas id="laserCanvas" width="560" height="560" data-aria-es="Simulación de grabado láser" data-aria-en="Laser engraving simulation"></canvas>
+      <pre class="gcode" id="gcode" aria-live="off"></pre>
+    </div>
+  </div>
+
+  <h3 class="sub"><span class="es">Cómo funciona</span><span class="en">How it works</span></h3>
+  <ol class="steps">
+    <li><b><span class="es">Importa o dibuja</span><span class="en">Import or draw</span></b><span class="es">SVG, DXF, PDF/AI e imágenes, o dibuja con capas, nodos, booleanas, texto sobre trayectoria y biblioteca de formas.</span><span class="en">SVG, DXF, PDF/AI and images, or draw with layers, nodes, booleans, text on path and a shape library.</span></li>
+    <li><b><span class="es">Asigna capas</span><span class="en">Assign layers</span></b><span class="es">Línea, Relleno, Relleno + Línea o Imagen, con tramados Floyd–Steinberg, Atkinson, Bayer, semitono… y biblioteca de materiales.</span><span class="en">Line, Fill, Fill + Line or Image, with Floyd–Steinberg, Atkinson, Bayer and halftone dithering, plus a material library.</span></li>
+    <li><b><span class="es">Simula</span><span class="en">Simulate</span></b><span class="es">G-code con optimización de desplazamientos, puentes, kerf y estimación de tiempo; simulación paso a paso del quemado.</span><span class="en">G-code with travel optimisation, tabs, kerf and time estimate; step-by-step burn simulation.</span></li>
+    <li><b><span class="es">Envía a la máquina</span><span class="en">Send to the machine</span></b><span class="es">USB/serie, TCP/Telnet o WebSocket, con detección del firmware, marco, homing, macros y editor de parámetros $$.</span><span class="en">USB/serial, TCP/Telnet or WebSocket, with firmware detection, framing, homing, macros and a $$ settings editor.</span></li>
+  </ol>
+
+  <div class="features">
+    <details open><summary><span class="es">Cámara y Print and Cut</span><span class="en">Camera and Print and Cut</span></summary><p class="es">Calibración de lente y del área de trabajo, superposición de la cámara en el lienzo, Print and Cut y Center Finder.</p><p class="en">Lens and work-area calibration, camera overlay on the canvas, Print and Cut and Center Finder.</p></details>
+    <details><summary><span class="es">Rotary y 13 asistentes de prueba</span><span class="en">Rotary and 13 test wizards</span></summary><p class="es">Corrección cilíndrica para rotary, biblioteca de materiales y asistentes de enfoque, potencia, intervalo y kerf.</p><p class="en">Cylindrical correction for rotary, material library and focus, power, interval and kerf wizards.</p></details>
+    <details><summary><span class="es">Seguridad desde el diseño</span><span class="en">Safety by design</span></summary><p class="es">Lista de comprobación antes de empezar, parada por software, vigilante del disparo de enfoque, sin desbloqueo automático tras una alarma y registro de eventos.</p><p class="en">Pre-start checklist, software stop, focus-fire watchdog, no automatic unlock after an alarm and a safety event log.</p></details>
+    <details><summary><span class="es">Simulador de cada firmware</span><span class="en">Simulator for every firmware</span></summary><p class="es">Prueba todo sin máquina: el simulador GRBL arranca con run.bat. También envía trabajos a la tarjeta SD de FluidNC/ESP3D.</p><p class="en">Try everything without a machine: the GRBL simulator starts with run.bat. It also sends jobs to the FluidNC/ESP3D SD card.</p></details>
+    <details><summary><span class="es">Plugins en Python</span><span class="en">Python plugins</span></summary><p class="es">Complementos para añadir controladores y herramientas propias.</p><p class="en">Add-ons for new controllers and your own tools.</p></details>
+  </div>
+</section>
+
+<!-- ============ OPENROUTEAI ============ -->
+<section class="chapter" id="openroute" style="--c:var(--route)" aria-labelledby="or-title">
+  <div class="chapter-head">
+    <div class="chapter-icon glyph" aria-hidden="true">
+      <svg viewBox="0 0 48 48"><path d="M8 38h10l8-8V14l6-6h8"/><circle cx="8" cy="38" r="4"/><circle cx="40" cy="8" r="4"/><path d="M8 24h8l4 4"/><circle cx="8" cy="24" r="3"/></svg>
+    </div>
+    <div>
+      <h2 id="or-title">OpenRouteAI</h2>
+      <p class="chapter-lede es">Autorouter de PCB libre para proyectos de KiCad 6 a 10. Lee el proyecto, rutea todas las pistas respetando las reglas de diseño y escribe un .kicad_pcb que se abre directamente en KiCad. Placas de 2 y 4 capas, SMD y THT, validadas con DRC propio y con el de KiCad.</p>
+      <p class="chapter-lede en">Open PCB autorouter for KiCad 6 to 10 projects. It reads the project, routes every track within the design rules and writes a .kicad_pcb that opens straight in KiCad. 2- and 4-layer boards, SMD and THT, checked with its own DRC and KiCad's.</p>
+    </div>
+    <div class="chapter-links">
+      <a class="btn btn-solid soon" href="https://github.com/Aleluya-Git" target="_blank" rel="noopener" data-title-es="El repositorio aún no es público" data-title-en="The repository is not public yet"><span class="es">Repositorio próximamente</span><span class="en">Repository coming soon</span></a>
+    </div>
+  </div>
+
+  <figure class="window viewer" data-project="openroute" data-name="OpenRouteAI"></figure>
+
+  <div class="demo demo-wide">
+    <div class="demo-text">
+      <h3><span class="es">Pruébalo: rutea una placa</span><span class="en">Try it: route a board</span></h3>
+      <p class="es">Una versión simplificada en el navegador (A* en rejilla, dos capas con vías). Arrastra un componente para moverlo y pulsa Rutear.</p>
+      <p class="en">A simplified in-browser version (grid A*, two layers with vias). Drag a component to move it and press Route.</p>
+    </div>
+    <div class="demo-stage route-stage">
+      <canvas id="routeCanvas" width="1200" height="620" data-aria-es="Demostración de autorouter" data-aria-en="Autorouter demo"></canvas>
+      <div class="route-hud">
+        <div class="row">
+          <button class="btn btn-solid" id="routeGo"><span class="es">Rutear</span><span class="en">Route</span></button>
+          <button class="btn btn-ghost" id="routeShuffle"><span class="es">Nueva placa</span><span class="en">New board</span></button>
+        </div>
+        <dl class="stats">
+          <div><dt><span class="es">Redes ruteadas</span><span class="en">Nets routed</span></dt><dd id="rNets">0 / 0</dd></div>
+          <div><dt><span class="es">Longitud total</span><span class="en">Total length</span></dt><dd id="rLen">0 mm</dd></div>
+          <div><dt><span class="es">Vías</span><span class="en">Vias</span></dt><dd id="rVias">0</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="sub"><span class="es">Cómo funciona</span><span class="en">How it works</span></h3>
+  <ol class="steps">
+    <li><b><span class="es">Prepara en KiCad</span><span class="en">Prepare in KiCad</span></b><span class="es">Actualiza la PCB desde el esquema (F8), coloca las huellas o deja que OpenRouteAI las coloque, y dibuja el contorno en Edge.Cuts.</span><span class="en">Update the PCB from the schematic (F8), place the footprints or let OpenRouteAI place them, and draw the outline on Edge.Cuts.</span></li>
+    <li><b><span class="es">Abre y elige estrategia</span><span class="en">Open and pick a strategy</span></b><span class="es">Abre el .kicad_pro, ajusta anchos de pista, vías y clases de red, y elige el algoritmo: A*, Lee, Hadlock o negociado.</span><span class="en">Open the .kicad_pro, set track widths, vias and net classes, and choose the algorithm: A*, Lee, Hadlock or negotiated.</span></li>
+    <li><b><span class="es">Enruta todo</span><span class="en">Route all</span></b><span class="es">Núcleo de búsqueda en C y GPU NVIDIA opcional para placas grandes; las pistas se depuran a rectas y 45°.</span><span class="en">C search core and optional NVIDIA GPU for large boards; tracks are cleaned up to straight and 45° segments.</span></li>
+    <li><b><span class="es">Revisa y guarda</span><span class="en">Review and save</span></b><span class="es">Vista 2D/3D, mapa de congestión y DRC. Se guarda nombre_enrutado.kicad_pcb, listo para abrir en KiCad.</span><span class="en">2D/3D view, congestion map and DRC. It saves name_enrutado.kicad_pcb, ready to open in KiCad.</span></li>
+  </ol>
+</section>
+
+<!-- ============ EFPD ============ -->
+<section class="chapter" id="efpd" style="--c:var(--panel)" aria-labelledby="ef-title">
+  <div class="chapter-head">
+    <img class="chapter-icon" src="assets/img/efpd-icon.png" alt="" width="72" height="72">
+    <div>
+      <h2 id="ef-title">Electronic Front Panel Designer</h2>
+      <p class="chapter-lede es">CAD 2D para los paneles frontales y traseros de tus equipos: fuentes de laboratorio, amplificadores, instrumentos, módulos Eurorack, cajas Hammond y paneles rack de 19".</p>
+      <p class="chapter-lede en">2D CAD for the front and rear panels of your gear: bench power supplies, amplifiers, instruments, Eurorack modules, Hammond boxes and 19" rack panels.</p>
+    </div>
+    <div class="chapter-links">
+      <a class="btn btn-solid" href="https://github.com/Aleluya-Git/Front-Panel-Designer" target="_blank" rel="noopener"><span class="es">Ver en GitHub</span><span class="en">View on GitHub</span></a>
+      <a class="btn btn-ghost" href="https://github.com/Aleluya-Git/Front-Panel-Designer/releases/latest" target="_blank" rel="noopener"><span class="es">Descargar (Windows y macOS)</span><span class="en">Download (Windows and macOS)</span></a>
+    </div>
+  </div>
+
+  <figure class="window viewer" data-project="efpd" data-name="Electronic Front Panel Designer"></figure>
+
+  <div class="demo">
+    <div class="demo-text">
+      <h3><span class="es">Pruébalo: generador de escalas</span><span class="en">Try it: scale generator</span></h3>
+      <p class="es">Una versión reducida del generador de escalas para potenciómetros (Mayús+E). Cambia el recorrido, las marcas y la numeración; gira el mando arrastrándolo.</p>
+      <p class="en">A cut-down version of the potentiometer scale generator (Shift+E). Change the sweep, ticks and numbering; drag the knob to turn it.</p>
+      <div class="controls">
+        <div class="seg" role="radiogroup" data-aria-es="Plantilla" data-aria-en="Template">
+          <button class="on" data-tpl="300" role="radio" aria-checked="true">300°</button>
+          <button data-tpl="270" role="radio" aria-checked="false">270°</button>
+          <button data-tpl="db" role="radio" aria-checked="false">dB</button>
+          <button data-tpl="sel" role="radio" aria-checked="false"><span class="es">Selector</span><span class="en">Selector</span></button>
+        </div>
+        <label><span><span class="es">Recorrido</span><span class="en">Sweep</span></span> <output id="sweepOut">300°</output><input type="range" id="sweep" min="90" max="340" step="5" value="300"></label>
+        <label><span><span class="es">Marcas principales</span><span class="en">Major ticks</span></span> <output id="ticksOut">11</output><input type="range" id="ticks" min="2" max="21" value="11"></label>
+        <label><span><span class="es">Submarcas</span><span class="en">Minor ticks</span></span> <output id="subOut">4</output><input type="range" id="sub" min="0" max="9" value="4"></label>
+        <label><span><span class="es">Valor final</span><span class="en">End value</span></span> <output id="maxOut">10</output><input type="range" id="maxv" min="1" max="100" value="10"></label>
+      </div>
+    </div>
+    <div class="demo-stage panel-stage">
+      <svg id="scaleSvg" viewBox="0 0 400 400" role="img" data-aria-es="Escala de potenciómetro generada" data-aria-en="Generated potentiometer scale"></svg>
+    </div>
+  </div>
+
+  <h3 class="sub"><span class="es">Cómo funciona</span><span class="en">How it works</span></h3>
+  <ol class="steps">
+    <li><b><span class="es">Elige el panel</span><span class="en">Pick the panel</span></b><span class="es">Plantillas rack 1U–4U, Eurorack 3U, Hammond 1590B/BB/XX; material, espesor, radio de esquinas y colores.</span><span class="en">Rack 1U–4U, Eurorack 3U and Hammond 1590B/BB/XX templates; material, thickness, corner radius and colours.</span></li>
+    <li><b><span class="es">Coloca componentes</span><span class="en">Place components</span></b><span class="es">Más de 60 con su mecanizado y cuerpo trasero: potenciómetros, encoders, LCD, OLED, BNC, XLR, IEC, USB, ventiladores y 80 rejillas.</span><span class="en">More than 60 with their cut-outs and rear bodies: pots, encoders, LCD, OLED, BNC, XLR, IEC, USB, fans and 80 grilles.</span></li>
+    <li><b><span class="es">Rotula y acota</span><span class="en">Label and dimension</span></b><span class="es">Textos, logotipos SVG/DXF, escalas de potenciómetro, cotas vinculadas y expresiones como =W/2 que se recalculan solas.</span><span class="en">Text, SVG/DXF logos, pot scales, linked dimensions and expressions like =W/2 that update themselves.</span></li>
+    <li><b><span class="es">Verifica</span><span class="en">Check</span></b><span class="es">F7 avisa de huecos fuera del panel, puentes mínimos, solapes, choques de cuerpos traseros y textos tapados por un mando.</span><span class="en">F7 warns about holes off the panel, minimum webs, overlaps, rear-body clashes and text hidden under a knob.</span></li>
+    <li><b><span class="es">Exporta</span><span class="en">Export</span></b><span class="es">DXF R12 por capas, SVG, PDF 1:1 como plantilla de taladrado, PNG, STL con rebajes, G-code y HPGL.</span><span class="en">Layered DXF R12, SVG, 1:1 PDF drilling template, PNG, STL with pockets, G-code and HPGL.</span></li>
+  </ol>
+</section>
+
+<!-- ============ LVGL ============ -->
+<section class="chapter" id="lvgl" style="--c:var(--lvgl)" aria-labelledby="lv-title">
+  <div class="chapter-head">
+    <div class="chapter-icon glyph" aria-hidden="true">
+      <svg viewBox="0 0 48 48"><rect x="5" y="9" width="38" height="26" rx="3"/><path d="M18 41h12M24 35v6"/><rect x="10" y="14" width="12" height="8" rx="2"/><path d="M27 16h11M27 21h7M10 28h28"/></svg>
+    </div>
+    <div>
+      <h2 id="lv-title">Open LVGL Studio</h2>
+      <p class="chapter-lede es">Diseñador visual de interfaces LVGL para ESPHome: dibujas la pantalla y obtienes el YAML listo para tu dispositivo. Al importar un YAML queda vinculado, y los cambios van y vienen entre el editor y el fichero.</p>
+      <p class="chapter-lede en">Visual LVGL interface designer for ESPHome: draw the screen and get YAML ready for your device. An imported YAML stays linked, so changes flow both ways between the editor and the file.</p>
+    </div>
+    <div class="chapter-links">
+      <a class="btn btn-solid soon" href="https://github.com/Aleluya-Git" target="_blank" rel="noopener" data-title-es="El repositorio aún no es público" data-title-en="The repository is not public yet"><span class="es">Repositorio próximamente</span><span class="en">Repository coming soon</span></a>
+    </div>
+  </div>
+
+  <figure class="window viewer" data-project="lvgl" data-name="Open LVGL Studio"></figure>
+
+  <div class="demo demo-wide">
+    <div class="demo-text">
+      <h3><span class="es">Pruébalo: lienzo y YAML sincronizados</span><span class="en">Try it: canvas and YAML in sync</span></h3>
+      <p class="es">Arrastra los widgets o cambia sus x, y y text en el YAML y verás cómo se sincronizan en los dos sentidos. Doble clic en un interruptor para cambiarlo.</p>
+      <p class="en">Drag the widgets or change their x, y and text in the YAML and watch both sides stay in sync. Double-click a switch to toggle it.</p>
+    </div>
+    <div class="demo-stage">
+      <div class="lv-editor">
+        <aside class="lv-palette" data-aria-es="Widgets" data-aria-en="Widgets">
+          <p>Widgets</p>
+          <button data-add="button"><span class="es">Botón</span><span class="en">Button</span></button>
+          <button data-add="label"><span class="es">Etiqueta</span><span class="en">Label</span></button>
+          <button data-add="switch"><span class="es">Interruptor</span><span class="en">Switch</span></button>
+          <button data-add="slider"><span class="es">Deslizador</span><span class="en">Slider</span></button>
+          <button data-add="arc"><span class="es">Arco</span><span class="en">Arc</span></button>
+          <button class="lv-del" id="lvDel" disabled><span class="es">Borrar seleccionado</span><span class="en">Delete selected</span></button>
+        </aside>
+        <div class="lv-screen-wrap">
+          <div class="lv-screen" id="lvScreen" data-aria-es="Pantalla 1024 × 600" data-aria-en="1024 × 600 screen"></div>
+          <span class="lv-res">1024 × 600 · ESP32-S3</span>
+        </div>
+        <div class="lv-yaml">
+          <div class="lv-yaml-bar"><span>YAML</span><span id="lvSync" class="sync"></span></div>
+          <textarea id="lvYaml" spellcheck="false" data-aria-es="YAML de ESPHome" data-aria-en="ESPHome YAML"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="sub"><span class="es">Cómo funciona</span><span class="en">How it works</span></h3>
+  <ol class="steps">
+    <li><b><span class="es">Importa tu YAML</span><span class="en">Import your YAML</span></b><span class="es">Ctrl+I abre una configuración de ESPHome: capas, tarjetas con flex y grid, pestañas, estilos y lambdas.</span><span class="en">Ctrl+I opens an ESPHome config: layers, flex and grid cards, tabs, styles and lambdas.</span></li>
+    <li><b><span class="es">Diseña</span><span class="en">Design</span></b><span class="es">Arrastra widgets al lienzo a la resolución real, con propiedades, estilos, componentes reutilizables y plugins.</span><span class="en">Drag widgets onto the canvas at real resolution, with properties, styles, reusable components and plugins.</span></li>
+    <li><b><span class="es">Simula</span><span class="en">Simulate</span></b><span class="es">F5 abre el simulador con gestos táctiles como en LVGL y varios dispositivos a la vez, cada uno con su resolución y giro.</span><span class="en">F5 opens the simulator with LVGL-style touch gestures and several devices at once, each with its own resolution and rotation.</span></li>
+    <li><b><span class="es">Exporta a ESPHome</span><span class="en">Export to ESPHome</span></b><span class="es">Ctrl+E escribe ui_lvgl.yaml y las imágenes; lo incluyes en tu dispositivo con packages.</span><span class="en">Ctrl+E writes ui_lvgl.yaml and the images; include it in your device with packages.</span></li>
+  </ol>
+
+  <div class="editions">
+    <div><h4>Community</h4><p class="es">Editor visual, importación, sincronización con el YAML, simulador y plugins.</p><p class="en">Visual editor, import, YAML sync, simulator and plugins.</p></div>
+    <div><h4>Pro</h4><p class="es">Extensión para VS Code e importación avanzada de YAML.</p><p class="en">VS Code extension and advanced YAML import.</p></div>
+    <div><h4>Enterprise</h4><p class="es">Versiones visuales, colaboración, catálogo de componentes y herramientas de IA.</p><p class="en">Visual versions, collaboration, component catalogue and AI tools.</p></div>
+  </div>
+  <p class="note es">Beta pública 0.10 con licencia doble (abierta y comercial). Python + PySide6.</p>
+  <p class="note en">Public beta 0.10 with dual licensing (open and commercial). Python + PySide6.</p>
+</section>
+
+<!-- ============ TALLER ============ -->
+<section class="about" id="taller" aria-labelledby="ab-title">
+  <div>
+    <h2 id="ab-title"><span class="es">Hecho en un taller, para otros talleres</span><span class="en">Made in a workshop, for other workshops</span></h2>
+    <p class="es">Estas aplicaciones nacen de necesidades reales: grabar con un láser GRBL propio, sacar placas de KiCad sin pelearse con el ruteado, mecanizar paneles que encajen a la primera y montar una pantalla domótica de 7" para Home Assistant. Todo el código es abierto, se prueba con autopruebas automáticas en cada versión y está traducido a varios idiomas.</p>
+    <p class="en">These applications come from real needs: engraving with a home-built GRBL laser, getting KiCad boards out without fighting the routing, machining panels that fit first time and building a 7" home automation screen for Home Assistant. All the code is open, tested with automatic self-tests on every release and translated into several languages.</p>
+    <div class="row">
+      <a class="btn btn-solid" href="https://github.com/Aleluya-Git" target="_blank" rel="noopener"><span class="es">Seguir en GitHub</span><span class="en">Follow on GitHub</span></a>
+      <a class="btn btn-ghost" href="https://github.com/Aleluya-Git/Openlaser/issues" target="_blank" rel="noopener"><span class="es">Abrir una incidencia</span><span class="en">Open an issue</span></a>
+    </div>
+  </div>
+  <dl class="facts">
+    <div><dt>4</dt><dd><span class="es">aplicaciones de escritorio</span><span class="en">desktop applications</span></dd></div>
+    <div><dt>4</dt><dd><span class="es">idiomas: español, inglés, francés y alemán</span><span class="en">languages: Spanish, English, French and German</span></dd></div>
+    <div><dt>3</dt><dd><span class="es">sistemas: Windows, macOS y Linux</span><span class="en">systems: Windows, macOS and Linux</span></dd></div>
+  </dl>
+</section>
+</main>
+
+<footer class="foot">
+  <span>© 2026 Aleluya-Git</span>
+  <nav data-aria-es="Repositorios" data-aria-en="Repositories">
+    <a href="https://github.com/Aleluya-Git/Openlaser" target="_blank" rel="noopener">Openlaser</a>
+    <a href="https://github.com/Aleluya-Git/Front-Panel-Designer" target="_blank" rel="noopener">Front-Panel-Designer</a>
+    <a href="https://github.com/Aleluya-Git" target="_blank" rel="noopener"><span class="es">Todos los repositorios</span><span class="en">All repositories</span></a>
+  </nav>
+  <a href="#top"><span class="es">Volver arriba</span><span class="en">Back to top</span></a>
+</footer>
+
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lb-close" data-aria-es="Cerrar" data-aria-en="Close">×</button>
+  <img alt="">
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
