@@ -9,7 +9,7 @@
 <meta property="og:title" content="Aleluya-Git · Software libre para quien construye electrónica">
 <meta property="og:description" content="Cuatro aplicaciones de escritorio para makers: láser, PCB, paneles frontales y pantallas LVGL.">
 <meta property="og:image" content="assets/img/screens/ol-principal.webp">
-<link rel="icon" href="assets/img/openlaser-icon.png">
+<link rel="icon" href="assets/img/logos/openlaser-icon.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -93,7 +93,7 @@ document.documentElement.lang=l;})();
         <p class="es">Autorouter libre para KiCad: lee el proyecto, rutea todas las pistas respetando las reglas y escribe un .kicad_pcb válido.</p>
         <p class="en">Open autorouter for KiCad: reads the project, routes every track within the design rules and writes a valid .kicad_pcb.</p>
         <ul class="tags"><li>PCB</li><li>KiCad 6–10</li><li>GPL-3.0</li></ul>
-        <span class="status dev"><span class="es">v0.5.0 · en desarrollo</span><span class="en">v0.5.0 · in development</span></span>
+        <span class="status dev"><span class="es">v0.6.4 · en desarrollo</span><span class="en">v0.6.4 · in development</span></span>
       </div>
     </a>
     <a class="card" href="#efpd" style="--c:var(--panel)">
@@ -122,7 +122,7 @@ document.documentElement.lang=l;})();
 <!-- ============ OPENLASER ============ -->
 <section class="chapter" id="openlaser" style="--c:var(--laser)" aria-labelledby="ol-title">
   <div class="chapter-head">
-    <img class="chapter-icon" src="assets/img/openlaser-icon.png" alt="" width="72" height="72">
+    <img class="chapter-icon" src="assets/img/logos/openlaser-icon.webp" alt="" width="72" height="72">
     <div>
       <h2 id="ol-title">OpenLaser Studio</h2>
       <p class="chapter-lede es">Del dibujo al quemado en una sola aplicación. Diseña, prepara, simula y ejecuta trabajos de grabado y corte con controladores GRBL 1.1+, grblHAL y FluidNC, y de forma experimental Marlin y Smoothieware.</p>
@@ -131,6 +131,7 @@ document.documentElement.lang=l;})();
     <div class="chapter-links">
       <a class="btn btn-solid" href="https://github.com/Aleluya-Git/Openlaser" target="_blank" rel="noopener"><span class="es">Ver en GitHub</span><span class="en">View on GitHub</span></a>
       <a class="btn btn-ghost" href="https://github.com/Aleluya-Git/Openlaser/releases/latest" target="_blank" rel="noopener"><span class="es">Descargar para Windows</span><span class="en">Download for Windows</span></a>
+      <a class="btn btn-guide" href="openlaser.html"><span class="es">Guía de uso: menús, iconos y ventanas</span><span class="en">User guide: menus, icons and windows</span></a>
     </div>
   </div>
 
@@ -184,16 +185,15 @@ document.documentElement.lang=l;})();
 <!-- ============ OPENROUTEAI ============ -->
 <section class="chapter" id="openroute" style="--c:var(--route)" aria-labelledby="or-title">
   <div class="chapter-head">
-    <div class="chapter-icon glyph" aria-hidden="true">
-      <svg viewBox="0 0 48 48"><path d="M8 38h10l8-8V14l6-6h8"/><circle cx="8" cy="38" r="4"/><circle cx="40" cy="8" r="4"/><path d="M8 24h8l4 4"/><circle cx="8" cy="24" r="3"/></svg>
-    </div>
+    <img class="chapter-icon" src="assets/img/logos/openroute-icon.webp" alt="" width="72" height="72">
     <div>
       <h2 id="or-title">OpenRouteAI</h2>
       <p class="chapter-lede es">Autorouter de PCB libre para proyectos de KiCad 6 a 10. Lee el proyecto, rutea todas las pistas respetando las reglas de diseño y escribe un .kicad_pcb que se abre directamente en KiCad. Placas de 2 y 4 capas, SMD y THT, validadas con DRC propio y con el de KiCad.</p>
       <p class="chapter-lede en">Open PCB autorouter for KiCad 6 to 10 projects. It reads the project, routes every track within the design rules and writes a .kicad_pcb that opens straight in KiCad. 2- and 4-layer boards, SMD and THT, checked with its own DRC and KiCad's.</p>
     </div>
     <div class="chapter-links">
-      <a class="btn btn-solid soon" href="https://github.com/Aleluya-Git" target="_blank" rel="noopener" data-title-es="El repositorio aún no es público" data-title-en="The repository is not public yet"><span class="es">Repositorio próximamente</span><span class="en">Repository coming soon</span></a>
+      <a class="btn btn-solid" href="https://github.com/Aleluya-Git/openrouteai" target="_blank" rel="noopener"><span class="es">Ver en GitHub</span><span class="en">View on GitHub</span></a>
+      <a class="btn btn-guide" href="openroute.html"><span class="es">Guía de uso: menús, iconos y ventanas</span><span class="en">User guide: menus, icons and windows</span></a>
     </div>
   </div>
 
@@ -233,7 +233,7 @@ document.documentElement.lang=l;})();
 <!-- ============ EFPD ============ -->
 <section class="chapter" id="efpd" style="--c:var(--panel)" aria-labelledby="ef-title">
   <div class="chapter-head">
-    <img class="chapter-icon" src="assets/img/efpd-icon.png" alt="" width="72" height="72">
+    <img class="chapter-icon" src="assets/img/logos/efpd-icon.webp" alt="" width="72" height="72">
     <div>
       <h2 id="ef-title">Electronic Front Panel Designer</h2>
       <p class="chapter-lede es">CAD 2D para los paneles frontales y traseros de tus equipos: fuentes de laboratorio, amplificadores, instrumentos, módulos Eurorack, cajas Hammond y paneles rack de 19".</p>
@@ -242,6 +242,7 @@ document.documentElement.lang=l;})();
     <div class="chapter-links">
       <a class="btn btn-solid" href="https://github.com/Aleluya-Git/Front-Panel-Designer" target="_blank" rel="noopener"><span class="es">Ver en GitHub</span><span class="en">View on GitHub</span></a>
       <a class="btn btn-ghost" href="https://github.com/Aleluya-Git/Front-Panel-Designer/releases/latest" target="_blank" rel="noopener"><span class="es">Descargar (Windows y macOS)</span><span class="en">Download (Windows and macOS)</span></a>
+      <a class="btn btn-guide" href="efpd.html"><span class="es">Guía de uso: menús, iconos y ventanas</span><span class="en">User guide: menus, icons and windows</span></a>
     </div>
   </div>
 
@@ -283,16 +284,15 @@ document.documentElement.lang=l;})();
 <!-- ============ LVGL ============ -->
 <section class="chapter" id="lvgl" style="--c:var(--lvgl)" aria-labelledby="lv-title">
   <div class="chapter-head">
-    <div class="chapter-icon glyph" aria-hidden="true">
-      <svg viewBox="0 0 48 48"><rect x="5" y="9" width="38" height="26" rx="3"/><path d="M18 41h12M24 35v6"/><rect x="10" y="14" width="12" height="8" rx="2"/><path d="M27 16h11M27 21h7M10 28h28"/></svg>
-    </div>
+    <img class="chapter-icon" src="assets/img/logos/lvgl-icon.webp" alt="" width="72" height="72">
     <div>
       <h2 id="lv-title">Open LVGL Studio</h2>
       <p class="chapter-lede es">Diseñador visual de interfaces LVGL para ESPHome: dibujas la pantalla y obtienes el YAML listo para tu dispositivo. Al importar un YAML queda vinculado, y los cambios van y vienen entre el editor y el fichero.</p>
       <p class="chapter-lede en">Visual LVGL interface designer for ESPHome: draw the screen and get YAML ready for your device. An imported YAML stays linked, so changes flow both ways between the editor and the file.</p>
     </div>
     <div class="chapter-links">
-      <a class="btn btn-solid soon" href="https://github.com/Aleluya-Git" target="_blank" rel="noopener" data-title-es="El repositorio aún no es público" data-title-en="The repository is not public yet"><span class="es">Repositorio próximamente</span><span class="en">Repository coming soon</span></a>
+      <a class="btn btn-solid" href="https://github.com/Aleluya-Git/open-lvgl-studio" target="_blank" rel="noopener"><span class="es">Ver en GitHub</span><span class="en">View on GitHub</span></a>
+      <a class="btn btn-guide" href="lvgl.html"><span class="es">Guía de uso: menús, iconos y ventanas</span><span class="en">User guide: menus, icons and windows</span></a>
     </div>
   </div>
 
@@ -368,6 +368,8 @@ document.documentElement.lang=l;})();
   <nav data-aria-es="Repositorios" data-aria-en="Repositories">
     <a href="https://github.com/Aleluya-Git/Openlaser" target="_blank" rel="noopener">Openlaser</a>
     <a href="https://github.com/Aleluya-Git/Front-Panel-Designer" target="_blank" rel="noopener">Front-Panel-Designer</a>
+    <a href="https://github.com/Aleluya-Git/openrouteai" target="_blank" rel="noopener">openrouteai</a>
+    <a href="https://github.com/Aleluya-Git/open-lvgl-studio" target="_blank" rel="noopener">open-lvgl-studio</a>
     <a href="https://github.com/Aleluya-Git" target="_blank" rel="noopener"><span class="es">Todos los repositorios</span><span class="en">All repositories</span></a>
   </nav>
   <a href="#top"><span class="es">Volver arriba</span><span class="en">Back to top</span></a>

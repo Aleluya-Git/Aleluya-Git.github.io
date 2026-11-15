@@ -26,6 +26,7 @@ git push -u origin main
 - **Idioma**: la web está en español e inglés (botones ES/EN arriba a la derecha; también `?lang=en` en la URL). Cada texto está dos veces en `index.html`, como `<span class="es">…</span><span class="en">…</span>`.
 - **Fuente de los títulos (BN Machine)**: copia `BNMachine.woff2` o `BNMachine.ttf` en `assets/fonts/`. Mientras no esté, los títulos usan Bricolage Grotesque. BN Machine figura como gratuita solo para uso personal: compruébalo antes de usarla en una web pública.
 - **Pantallas de cada programa**: están en `assets/img/screens/` y se configuran en `assets/js/main.js` (objeto `SCREENS`). Cada pantalla tiene título, descripción y una imagen por idioma (`src: { es, en, fr, de }`); si una pantalla tiene varias, aparecen los botones de idioma en la ventana. Los puntos de la barra de la ventana pasan de una pantalla a otra.
-- **Repositorios pendientes**: busca `Repositorio próximamente` en `index.html` y cambia el `href` y el texto cuando publiques OpenRouteAI y Open LVGL Studio.
+- **Guías de cada programa**: `openlaser.html`, `openroute.html`, `efpd.html` y `lvgl.html`. El texto (introducción, pasos, zonas numeradas de la ventana, galería y consejos) está en `assets/data/<programa>.js`. Los menús, barras e iconos están en `assets/data/<programa>-ui.js` y se generaron a partir del código fuente de cada programa; los iconos están en `assets/icons/<programa>/`.
+- **Logos e iconos de los programas**: `assets/img/logos/`.
 - **Colores**: variables al principio de `assets/css/style.css` (`--laser`, `--route`, `--panel`, `--lvgl`).
 - **Demos interactivas**: `assets/js/main.js`, una sección por proyecto.
